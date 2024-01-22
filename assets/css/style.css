@@ -39,3 +39,44 @@ body {
 .red-color {
     color: red;
 }
+
+.add-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.add-btns div {
+    min-width: 250px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.add-income {
+    padding: 1em;
+    background: rgba(0, 255, 0, 0.3);
+    border: 2px solid green;
+    border-radius: 1em;
+}
+
+.add-outcome {
+    padding: 1em;
+    background: rgba(255, 0, 0, 0.3);
+    border: 2px solid red;
+    border-radius: 1em;
+}
+
+.add-outcome-category {
+    padding: 1em;
+    background: rgba(143, 143, 143, 0.5);
+    border: 2px solid #8f8f8f;
+    border-radius: 1em;
+}
+
+.add-income-category {
+    padding: 1em;
+    background: rgba(143, 143, 143, 0.5);
+    border: 2px solid #8f8f8f;
+    border-radius: 1em;
+}
