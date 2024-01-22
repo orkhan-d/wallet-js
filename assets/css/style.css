@@ -1,7 +1,19 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: 600;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -15,4 +27,12 @@ body {
 
 .wrapper {
     max-width: 1300px;
+    margin: 0 auto;
+}
+
+.flexrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
 }

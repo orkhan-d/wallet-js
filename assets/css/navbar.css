@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 600;
+    padding: 1em 2em;
+}
+
+nav p {
+    cursor: pointer;
+}
