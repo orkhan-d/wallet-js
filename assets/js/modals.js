@@ -1,16 +1,5 @@
 let outcomeCategories = [];
 
-document.querySelector('.wallet-btn').addEventListener('click', () => {
-    const content = document.querySelector('.content').innerHTML = `
-    <div class="add-btns">
-        <div class="add-income">➕ Добавить доход</div>
-        <div class="change-password">Изменить пароль</div>
-        <div class="add-outcome-category">Добавить категорию расходов</div>
-        <div class="add-outcome">➕ Добавить расход</div>
-    </div>
-    `;
-});
-
 document.querySelector('.add-outcome-category').addEventListener(
     'click', () => {
         document.querySelector('.modal').innerHTML = `
@@ -59,3 +48,10 @@ document.querySelector('.change-password').addEventListener(
         });
     }
 );
+
+const modal = document.querySelector('.modal');
+modal.addEventListener('click', (event) => {
+    if (event.target==modal) {
+        modal.classList.add('display-none');
+    }
+})

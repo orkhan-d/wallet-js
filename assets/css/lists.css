@@ -1,17 +1,18 @@
-.outcomes-list, .incomes-list {
+.outcomes-list, .incomes-list, .list {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     border: 1px solid #8f8f8f;
     background: rgba(143, 143, 143, 0.5);
     border-radius: 1em;
 }
 
-.outcome-headers, .income-headers {
+.outcome-headers, .income-headers, .summary-headers {
     background: rgba(143, 143, 143, 0.55);
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
+    display: flex;
 }
 
 .outcome {
@@ -22,7 +23,7 @@
     padding: 1em;
 }
 
-.income {
+.income, .summary-row, .summary-headers {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +43,14 @@
     border-bottom: 1px solid gray;
 }
 
-.outcome p, .income p, .no-rows p {
+.outcome p, .income p, .no-rows p, .summary-headers p, .summary-row p {
     width: fit-content;
     margin: 0 auto;
+}
+
+.lists {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1em;
 }
