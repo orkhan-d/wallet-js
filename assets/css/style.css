@@ -32,9 +32,10 @@ body {
     padding: 0 1em;
 }
 
-.flexrow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2em;
+.green-color {
+    color: green;
+}
+
+.red-color {
+    color: red;
 }

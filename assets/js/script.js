@@ -1,5 +1,8 @@
-let outcomesBtn = document.querySelector('.outcomes-btn');
-let incomesBtn = document.querySelector('.incomes-btn');
+const outcomesBtn = document.querySelector('.outcomes-btn');
+const incomesBtn = document.querySelector('.incomes-btn');
+
+const balanceField = document.querySelector('.balance-field');
+let balance = 0;
 
 let outcomes = [];
 let incomes = [];
@@ -80,3 +83,24 @@ incomesBtn.addEventListener('click', () => {
     }
     content.innerHTML = html+'</div>';
 });
+
+const showBalance = () => {
+    incomes.forEach(ic => balance+=ic.amount);
+    outcomes.forEach(oc => balance-=oc.amount);
+
+    balanceField.innerHTML = balance;
+    if(balance<0) {
+        balanceField.classList.remove('green-color');
+        balanceField.classList.add('red-color');
+    }
+    else if(balance<0) {
+        balanceField.classList.add('green-color');
+        balanceField.classList.remove('red-color');
+    }
+    else {
+        balanceField.classList.remove('green-color');
+        balanceField.classList.remove('red-color');
+    }
+}
+
+showBalance();

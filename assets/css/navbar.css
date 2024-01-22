@@ -4,9 +4,30 @@ nav {
     justify-content: space-between;
     color: white;
     font-weight: 600;
-    padding: 1.5em 3em;
+    padding: 0 3em;
+    flex-wrap: wrap;
 }
 
 nav p {
     cursor: pointer;
+    min-width: 100px;
+    padding: 1.5em 0;
+    text-align: center;
+}
+
+.flexrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 375px) {
+    nav .flexrow:first-of-type p {
+        padding-bottom: 0.5em;
+    }
+    nav .flexrow:last-of-type p {
+        padding-top: 0.5em;
+    }
 }
