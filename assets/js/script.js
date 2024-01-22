@@ -7,16 +7,6 @@ let balance = 0;
 let outcomes = [];
 let incomes = [];
 
-let outcomeCategories = [];
-let incomeCategories = [];
-
-outcomes.push({
-    category: 'cat',
-    name: 'name',
-    amount: 228,
-    date: new Date(2024, 0, 1)
-});
-
 outcomesBtn.addEventListener('click', () => {
     let content = document.querySelector('.content');
     let html = `
@@ -56,7 +46,6 @@ incomesBtn.addEventListener('click', () => {
     let html = `
         <div class="incomes-list">
             <div class="income income-headers">
-                <p>Категория</p>
                 <p>Название</p>
                 <p>Сумма</p>
                 <p>Дата</p>
@@ -66,7 +55,6 @@ incomesBtn.addEventListener('click', () => {
         incomes.forEach(oc => {
             html+=`
         <div class="income">
-            <p>${oc.category}</p>
             <p>${oc.name}</p>
             <p>${oc.amount}</p>
             <p>${oc.date.toLocaleDateString()}</p>
@@ -85,8 +73,16 @@ incomesBtn.addEventListener('click', () => {
 });
 
 const showBalance = () => {
-    incomes.forEach(ic => balance+=ic.amount);
-    outcomes.forEach(oc => balance-=oc.amount);
+    balance = 0;
+    incomes.forEach(ic => {
+        balance+=+ic.amount;
+    });
+    outcomes.forEach(oc => {
+        balance-=+oc.amount;
+    });
+
+    console.log(incomes);
+    console.log(outcomes);
 
     balanceField.innerHTML = balance;
     if(balance<0) {
@@ -102,5 +98,122 @@ const showBalance = () => {
         balanceField.classList.remove('red-color');
     }
 }
+
+const categoriesToOptions = () => {
+    let html = ``;
+    outcomeCategories.forEach(
+        c => html+=`<option value="${c}">${c}</option>`
+    )
+
+    return html;
+};
+
+document.querySelector('.add-outcome').addEventListener(
+    'click', () => {
+        document.querySelector('.modal').innerHTML = `
+            <div class="modal-win">
+                <p>Введите название</p>
+                <input class="name" type="text">
+                <p>Выберите категорию</p>
+                <select class="category" type="text">
+                    ${categoriesToOptions()}
+                </select>
+                <p>Введите сумму</p>
+                <input class="summ" type="text">
+                <button class="add-outcome-btn">Добавить</button>
+            </div>
+        `;
+
+        document.querySelector('.modal').classList.remove('display-none');
+
+        document.querySelector('.add-outcome-btn').addEventListener('click', () => {
+            let name = document.querySelector('input.name').value;
+            let category = document.querySelector('select.category').value;
+            let summ = document.querySelector('input.summ').value;
+
+            if(name.length==0) {
+                document.querySelector('input.name').classList.add('red-borders');
+                return;
+            }
+            else {
+                document.querySelector('input.name').classList.remove('red-borders');
+            }
+            if(!category) {
+                document.querySelector('select.category').classList.add('red-borders');
+                return;
+            }
+            else {
+                document.querySelector('select.category').classList.remove('red-borders');
+            }
+            if(summ.length==0) {
+                document.querySelector('input.summ').classList.add('red-borders');
+                return;
+            }
+            else {
+                document.querySelector('input.summ').classList.remove('red-borders');
+            }
+
+            let outcome = {
+                name: name,
+                category: category,
+                amount: summ,
+                date: new Date()
+            };
+
+            outcomes.push(outcome);
+
+            document.querySelector('.modal').classList.add('display-none');
+            showBalance();
+        });
+    }
+);
+
+document.querySelector('.add-income').addEventListener(
+    'click', () => {
+        document.querySelector('.modal').innerHTML = `
+            <div class="modal-win">
+                <p>Введите название</p>
+                <input class="name" type="text">
+                <p>Введите сумму</p>
+                <input class="summ" type="text">
+                <button class="add-outcome-btn">Добавить</button>
+            </div>
+        `;
+
+        document.querySelector('.modal').classList.remove('display-none');
+
+        document.querySelector('.add-outcome-btn').addEventListener('click', () => {
+            let name = document.querySelector('input.name').value;
+            let summ = document.querySelector('input.summ').value;
+
+            if(name.length==0) {
+                document.querySelector('input.name').classList.add('red-borders');
+                return;
+            }
+            else {
+                document.querySelector('input.name').classList.remove('red-borders');
+            }
+            if(summ.length==0) {
+                document.querySelector('input.summ').classList.add('red-borders');
+                return;
+            }
+            else {
+                document.querySelector('input.summ').classList.remove('red-borders');
+            }
+
+            let income = {
+                name: name,
+                amount: summ,
+                date: new Date()
+            };
+
+            incomes.push(income);
+
+            document.querySelector('.modal').classList.add('display-none');
+            showBalance();
+        });
+
+    }
+);
 
 showBalance();

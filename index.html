@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/lists.css">
+    <link rel="stylesheet" href="./assets/css/modals.css">
 </head>
 <body>
     <div class="wrapper">
@@ -24,12 +25,23 @@
         <div class="content">
             <div class="add-btns">
                 <div class="add-income">➕ Добавить доход</div>
-                <div class="add-outcome-category">Добавить категорию доходов</div>
+                <div class="change-password">Изменить пароль</div>
                 <div class="add-outcome-category">Добавить категорию расходов</div>
                 <div class="add-outcome">➕ Добавить расход</div>
             </div>
         </div>
+        <div class="modal display-none"></div>
+
+        <div class="modal-login">
+            <div class="login">
+                <p>Введите пароль:</p>
+                <input class="pwd" type="text">
+                <button class="login-btn">Войти</button>
+            </div>
+        </div>
     </div>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

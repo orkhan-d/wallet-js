@@ -14,10 +14,18 @@
     border-top-right-radius: 1em;
 }
 
-.outcome, .income {
+.outcome {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    padding: 1em;
+}
+
+.income {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     padding: 1em;
 }
